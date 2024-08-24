@@ -1,21 +1,25 @@
-const form= document.querySelector('form');
-form.addEventListener('submit',function(e) {
-    e.preventDefault();
+function calculateBMI() {
+  const height = parseFloat(document.getElementById('height').value) / 100; // Convert height to meters
+  const weight = parseFloat(document.getElementById('weight').value);
 
-    const height =parseInt( document.querySelector('#height').value);
-    const weight=parseInt(document.querySelector('#weight').value);
-    const result=document.querySelector('#results');
-    
-    
-    if(height===''|| height<0 || isNaN(height)  ){
-      result.innerhtml="Please givea valid height";
-    } 
-    else if(weight===''|| weight<0 || isNaN(weight)  ){
-      result.innerhtml="Please givea valid weight";
-    }
-    
-    else {
-      const bmi=(weight / ((height*height)/10000).toFixed(2));
-      result.innerHTML=<span>${bmi}</span>;
-    }} )
+  if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+      document.getElementById('result').textContent = "Please enter valid values!";
+      return;
+  }
+
+  const bmi = weight / (height * height);
+  let bmiCategory = "";
+
+  if (bmi < 18.5) {
+      bmiCategory = "Underweight";
+  } else if (bmi >= 18.5 && bmi < 24.9) {
+      bmiCategory = "Normal weight";
+  } else if (bmi >= 25 && bmi < 29.9) {
+      bmiCategory = "Overweight";
+  } else {
+      bmiCategory = "Obesity";
+  }
+
+  document.getElementById('result').textContent = `Your BMI is ${bmi.toFixed(2)} (${bmiCategory})`;
+}
   
