@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-
-  <title> BMI GENERATOR </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>BMI CALCULATOR </h1>
-    <form>
-      <p><label> Height In Meters: </label><input type="text" id="height"  /></p>
-      <p><label> Weight In kg: </label><input type="text" id="weight" /></p>
-      <button>Calculate</button>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter height in cm">
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter weight in kg">
+        </div>
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <div id="result"></div>
+    </div>
 
-      <div id="results"></div>
-      <div id="weight-guide">
-        <h3> BMI Weight Guide</h3>
-        <p> Under Weight= less than 18.6 </p>
-        <p> Normal Range= 18.6 and 24.9</p>
-        <p> overweight= Greator than 24.9</p> 
-      </div>
-    </form>
-      
-
-  </div>
-  
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
+
